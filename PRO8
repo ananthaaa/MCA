@@ -1,0 +1,42 @@
+function validation()
+{
+	const uname=document.getElementById("unameid").value;
+	const email=document.getElementById("emailid").value;
+	const pass=document.getElementById("passid").value;
+	const cpass=document.getElementById("cpassid").value;
+	const mob=document.getElementById("mobid").value;
+
+	const emailexp=/[a-zA-Z0-9._%+-]+@[a-z]+\.[a-z]{3,3}$/;
+	const mobexp=/^\d{10}$/;
+
+	if(uname==="" || email==="" || pass==="" || cpass==="" || mob==="")
+{
+	alert("All feilds are mandatory..");
+return false;
+}
+else if(!emailexp.test(email))
+{
+alert("email format is incorrect...");
+return false;
+}
+else if(pass.length<8)
+{
+alert("password must be 8 characters..");
+return false;
+}
+else if(cpass!=pass)
+{
+alert("password did not match ..");
+return false;
+}
+else if(!mobexp.test(mob))
+{
+alert("mobile format is incorrect..");
+return false;
+}
+else
+{
+alert("submitted successfully..");
+return;
+}
+}
